@@ -1,0 +1,34 @@
+# This is a very dumbass Makefile, but it suits the needs
+
+DEBUGFLAGS=-g
+INCDIRS=
+LIBDIRS=-L./
+CFLAGS=$(DEBUGFLAGS) -Wall
+LIBS=-ltestlib
+OUTPUT=testlib_unittest
+
+MKDIR=mkdir
+CPP=g++
+RM=rm
+
+_OBJS=                            \
+    testlib_unittest.o
+
+ODIR=objs
+OBJS=$(patsubst %,$(ODIR)/%,$(_OBJS))
+
+HEADERS=
+
+default: ${ODIR} all
+
+${ODIR}:
+	${MKDIR} -p ${ODIR}
+
+${ODIR}/%.o: %.cpp ${HEADERS}
+	${CPP} -c -o $@ $< $(CFLAGS) ${INCDIRS}
+
+all: ${OBJS}
+	${CPP} -o ${OUTPUT} ${OBJS} ${LIBDIRS} ${LIBS}
+
+clean:
+	rm -rf ${OBJS} ${OUTPUT}
