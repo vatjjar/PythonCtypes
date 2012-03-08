@@ -11,10 +11,10 @@ Finally, run.sh shell script runs both unit test, which are supposed to
 build similar results, of course.
 
 The example was written since I could not find a complete example of
-doing such a thing in the wild. It was open sources, since someone else
+doing such a thing in the wild. It was open sourced, since someone else
 might find the same mechanism useful in the shape of an example.
 
 Requirements for building this package are (on linux platform)
-- python-ctypes and python-ctypeslib packages (from repository.
+- python-ctypes and python-ctypeslib packages (from the repository.
 
 Tested with Ubuntu 11.10 (64-bit)
